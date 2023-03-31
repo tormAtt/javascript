@@ -93,3 +93,31 @@ const picArray = [
 ];
 
 // add your code here
+const section = document.querySelector("#pictures");
+for(let i = 0; i < picArray.length; i++){
+  const article = document.createElement("article");
+  article.className = "card";
+
+  const header = document.createElement("h2");
+  const hText = document.createTextNode(picArray[i].title);
+  header.appendChild(hText);
+  article.appendChild(header);
+
+  const figure = document.createElement("figure");
+  const image = document.createElement("img");
+  image.src = picArray[i].image.medium;
+  image.alt = picArray[i].title;
+  const figcaption = document.createElement("figcaption");
+  const figText = document.createTextNode(picArray[i].caption);
+  figcaption.appendChild(figText);
+  figure.appendChild(image);
+  figure.appendChild(figcaption);
+  article.appendChild(figure);
+
+  const description = document.createElement("p");
+  const dText = document.createTextNode(picArray[i].description);
+  description.appendChild(dText);
+  article.appendChild(description);
+
+  section.appendChild(article);
+}
