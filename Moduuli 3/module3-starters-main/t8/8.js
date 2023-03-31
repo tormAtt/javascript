@@ -4,7 +4,6 @@ const button = document.getElementById("start");
 
 function calculate(evt) {
   const choice = document.getElementById("operation").value;
-  console.log(choice)
   const num1 = parseFloat(document.querySelector("#num1").value);
   const num2 = parseFloat(document.querySelector("#num2").value);
   let answer = 0;
