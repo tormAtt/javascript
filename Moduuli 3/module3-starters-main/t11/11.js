@@ -95,6 +95,8 @@ const picArray = [
 // add your code here
 
 const section = document.querySelector("#pictures");
+const dialog = document.getElementsByTagName("dialog")[0];
+
 for(let i = 0; i < picArray.length; i++){
   const article = document.createElement("article");
   article.className = "card";
@@ -119,30 +121,16 @@ for(let i = 0; i < picArray.length; i++){
   const dText = document.createTextNode(picArray[i].description);
   description.appendChild(dText);
   article.appendChild(description);
+  article.addEventListener("click", () => {openModal(dialog, i)});
 
   section.appendChild(article);
 }
-
-const dialog = document.getElementsByTagName("dialog")[0];
-for(let i = 0; i < section.getElementsByTagName("article").length; i++) {
-  const article = section.getElementsByTagName("article")[i];
-  article.addEventListener("click", () => {openModal(dialog, i)});
-}
-
-function getLargeImage(i){
-  for(let j = 0; j < picArray.length; j++) {
-    if(picArray[i].title === picArray[j].title) {
-      return picArray[j].image.large;
-    }
-  }
-}
-
 function closeModal(dialog) {
   dialog.close();
 }
 function openModal(dialog, i){
   console.log(i);
-  dialog.getElementsByTagName("img")[0].src = getLargeImage(i);
+  dialog.getElementsByTagName("img")[0].src = picArray[i].image.large;
   dialog.getElementsByTagName("img")[0].alt = picArray[i].title;
   dialog.showModal();
   const span = dialog.getElementsByTagName("span")[0];
