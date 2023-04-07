@@ -130,7 +130,7 @@ async function getAddress(evt) {
   evt.preventDefault();
   const haku = document.querySelector("input[name=h]").value.replace(" ", "");
   try {
-    const response = await fetch(`http://dev-api.digitransit.fi/geocoding/v1/search?text=${haku}&focus.point.lat=60.224420&focus.point.lon=24.758230&size=1&digitransit-subscription-key=c6de4941d95147f19692d27ef05d7824`);
+    const response = await fetch(`https://dev-api.digitransit.fi/geocoding/v1/search?text=${haku}&focus.point.lat=60.224420&focus.point.lon=24.758230&size=1&digitransit-subscription-key=c6de4941d95147f19692d27ef05d7824`);
     const json = await response.json();
     Coordinates(json);
   } catch(error) {
